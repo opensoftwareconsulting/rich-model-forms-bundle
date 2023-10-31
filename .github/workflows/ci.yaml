@@ -97,6 +97,7 @@ jobs:
         with:
           php-version: '${{ matrix.php-version }}'
           coverage: 'none'
+          tools: flex
 
       - name: 'Get Composer cache directory'
         id: 'composer-cache'
@@ -111,12 +112,9 @@ jobs:
 
       - name: 'Install dependencies'
         env:
-          COMPOSER_OPTIONS: '${{ matrix.composer-options }}'
           SYMFONY_REQUIRE: '${{ matrix.symfony-version }}'
         run: |
-          composer global config --no-plugins allow-plugins.symfony/flex true
-          composer global require --no-progress --no-scripts --no-plugins symfony/flex
-          composer update --no-progress $COMPOSER_OPTIONS
+          composer update --no-progress ${{ matrix.composer-options }}
 
       - name: 'Install PHPUnit'
         run: 'vendor/bin/simple-phpunit install'
