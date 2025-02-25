@@ -1,6 +1,0 @@
-parameters:
-    checkGenericClassInNonGenericObjectType: false
-    checkMissingIterableValueType: false
-    inferPrivatePropertyTypeFromConstructor: true
-    paths:
-        - src

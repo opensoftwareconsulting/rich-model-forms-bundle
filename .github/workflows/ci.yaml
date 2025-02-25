@@ -42,12 +42,12 @@ jobs:
 
       - name: 'Install dependencies'
         uses: php-actions/composer@v6
+        with:
+          php_version: '8.1'
 
       - name: 'Run PhpStan'
-        uses: 'php-actions/phpstan@v3'
-        with:
-          configuration: 'phpstan.neon'
-          level: max
+        run: |
+          vendor/bin/phpstan analyze
 
   tests:
     name: 'PHPUnit'

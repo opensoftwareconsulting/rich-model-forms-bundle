@@ -27,7 +27,7 @@ final class FormDataInstantiator extends ObjectInstantiator
     private array $formNameForArgument;
 
     /**
-     * @param class-string|\Closure|(callable&array) $factory
+     * @param class-string|\Closure|((callable(): object)&array{0: class-string|object, 1: string}) $factory
      */
     public function __construct(string|callable $factory, FormInterface $form)
     {

@@ -22,8 +22,12 @@ final class Error
 {
     private \Throwable $cause;
     private string $messageTemplate;
+    /** @var array<string, string> */
     private array $parameters;
 
+    /**
+     * @param array<string, string> $parameters
+     */
     public function __construct(\Throwable $cause, string $messageTemplate, array $parameters = [])
     {
         $this->cause = $cause;
@@ -41,6 +45,9 @@ final class Error
         return $this->messageTemplate;
     }
 
+    /**
+     * @return array<string, string>
+     */
     public function getParameters(): array
     {
         return $this->parameters;

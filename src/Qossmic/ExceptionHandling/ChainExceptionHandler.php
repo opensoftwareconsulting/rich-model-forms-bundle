@@ -30,6 +30,7 @@ use Symfony\Component\Form\FormConfigInterface;
  */
 final class ChainExceptionHandler implements ExceptionHandlerInterface
 {
+    /** @var ExceptionHandlerInterface[] */
     private iterable $exceptionHandlers;
 
     /**
