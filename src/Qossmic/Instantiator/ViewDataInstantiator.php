@@ -33,6 +33,7 @@ final class ViewDataInstantiator extends ObjectInstantiator
      */
     public function __construct(FormBuilderInterface $form, array|bool|int|string $viewData)
     {
+        /* @phpstan-ignore-next-line */
         parent::__construct($form->getFormConfig()->getOption('factory'));
 
         $this->form = $form;
@@ -50,6 +51,9 @@ final class ViewDataInstantiator extends ObjectInstantiator
         return $this->form->getFormConfig()->getCompound();
     }
 
+    /**
+     * @return array<string,mixed>|bool|int|string
+     */
     protected function getData(): array|bool|int|string
     {
         return $this->viewData;

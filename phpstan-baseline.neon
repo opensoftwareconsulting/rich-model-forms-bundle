@@ -1,0 +1,37 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$objectOrArray of method Symfony\\Component\\PropertyAccess\\PropertyAccessorInterface\:\:setValue\(\) expects array\|object, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Qossmic/DataMapper/DataMapper.php
+
+		-
+			message: '#^Class Qossmic\\RichModelForms\\DataTransformer\\ValueObjectTransformer implements generic interface Symfony\\Component\\Form\\DataTransformerInterface but does not specify its types\: TValue, TTransformedValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Qossmic/DataTransformer/ValueObjectTransformer.php
+
+		-
+			message: '#^Method Qossmic\\RichModelForms\\DataTransformer\\ValueObjectTransformer\:\:getPropertyValue\(\) should return bool\|int\|string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Qossmic/DataTransformer/ValueObjectTransformer.php
+
+		-
+			message: '#^Cannot access offset ''strategy'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Qossmic/DependencyInjection/Compiler/RegisterExceptionHandlersPass.php
+
+		-
+			message: '#^Parameter \#1 \$strategy of method Qossmic\\RichModelForms\\ExceptionHandling\\ExceptionHandlerRegistry\:\:has\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Qossmic/Extension/RichModelFormsTypeExtension.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Qossmic/Extension/RichModelFormsTypeExtension.php

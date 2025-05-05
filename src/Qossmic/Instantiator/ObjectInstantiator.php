@@ -22,8 +22,12 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
  */
 abstract class ObjectInstantiator
 {
+    /** @var class-string|(\Closure(): object)|((callable(): object)&array{0: class-string|object, 1: string}) */
     private mixed $factory;
 
+    /**
+     * @param class-string|(\Closure(): object)|((callable(): object)&array{0: class-string|object, 1: string}) $factory
+     */
     public function __construct(mixed $factory)
     {
         $this->factory = $factory;
@@ -42,7 +46,8 @@ abstract class ObjectInstantiator
             if (!$factoryMethod->isPublic()) {
                 throw new TransformationFailedException(\sprintf('The factory method %s() is not public.', $factoryMethodAsString));
             }
-        } elseif (\is_array($this->factory) && \is_callable($this->factory)) {
+        } elseif (\is_array($this->factory)) {
+            /** @var class-string $class */
             $class = \is_object($this->factory[0]) ? \get_class($this->factory[0]) : $this->factory[0];
             $factoryMethod = (new \ReflectionMethod($class, $this->factory[1]));
             $factoryMethodAsString = $class.'::'.$this->factory[1];
@@ -70,6 +75,7 @@ abstract class ObjectInstantiator
             return new $this->factory(...$arguments);
         }
 
+        /* @phpstan-ignore-next-line */
         return ($this->factory)(...$arguments);
     }
 
