@@ -27,7 +27,7 @@
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
-        "symfony/phpunit-bridge": "^6.4||^7.0",
+        "phpunit/phpunit": "^11.5",
         "symfony/translation": "^6.4||^7.0"
     },
     "conflict": {

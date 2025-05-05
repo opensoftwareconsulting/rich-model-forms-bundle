@@ -116,10 +116,7 @@ jobs:
         run: |
           composer update --no-progress ${{ matrix.composer-options }}
 
-      - name: 'Install PHPUnit'
-        run: 'vendor/bin/simple-phpunit install'
-
       - name: 'Run tests'
         run: |
-            vendor/bin/simple-phpunit --testsuite="unit tests"
-            vendor/bin/simple-phpunit --testsuite="integration tests"
+            vendor/bin/phpunit --testsuite="unit tests"
+            vendor/bin/phpunit --testsuite="integration tests"
