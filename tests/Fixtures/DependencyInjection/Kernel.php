@@ -16,6 +16,7 @@ declare(strict_types = 1);
 namespace Qossmic\RichModelForms\Tests\Fixtures\DependencyInjection;
 
 use Qossmic\RichModelForms\RichModelFormsBundle;
+use Symfony\Bundle\FrameworkBundle\Command\TranslationExtractCommand;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
@@ -37,13 +38,20 @@ class Kernel extends BaseKernel
         $loader->load(function (ContainerBuilder $container): void {
             $container->addCompilerPass(new PublicTestAliasPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, 1000);
             $container->setParameter('kernel.secret', __FILE__);
-            $container->loadFromExtension('framework', [
+
+            $frameworkConfig = [
                 'handle_all_throwables' => false,
                 'http_method_override' => false,
                 'php_errors' => [
                     'log' => false,
                 ],
-            ]);
+            ];
+
+            if (class_exists(TranslationExtractCommand::class)) {
+                $frameworkConfig['property_info']['with_constructor_extractor'] = true;
+            }
+
+            $container->loadFromExtension('framework', $frameworkConfig);
         });
     }
 
