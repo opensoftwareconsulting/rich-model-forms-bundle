@@ -20,7 +20,9 @@ use Qossmic\RichModelForms\ExceptionHandling\FormExceptionHandler;
 use Qossmic\RichModelForms\Extension\RichModelFormsTypeExtension;
 use Qossmic\RichModelForms\Tests\ExceptionHandlerRegistryTrait;
 use Qossmic\RichModelForms\Tests\Fixtures\Form\GrossPriceType;
+use Qossmic\RichModelForms\Tests\Fixtures\Form\NonScalarType;
 use Qossmic\RichModelForms\Tests\Fixtures\Form\PriceType;
+use Qossmic\RichModelForms\Tests\Fixtures\Model\ForNonScalarType;
 use Qossmic\RichModelForms\Tests\Fixtures\Model\GrossPrice;
 use Qossmic\RichModelForms\Tests\Fixtures\Model\Price;
 use Symfony\Component\Form\Exception\TransformationFailedException;
@@ -33,6 +35,19 @@ use Symfony\Component\PropertyAccess\PropertyAccess;
 class ValueObjectsTest extends TestCase
 {
     use ExceptionHandlerRegistryTrait;
+
+    public function testValueObjectTransformerSupportsNonScalarValue(): void
+    {
+        $form = $this->createNamedForm('amount', NonScalarType::class);
+        $form->submit([
+            'dateFrom' => '2025-01-01',
+        ]);
+
+        $data = $form->getData();
+
+        $this->assertInstanceOf(ForNonScalarType::class, $data);
+        $this->assertEquals(new \DateTimeImmutable('2025-01-01'), $data->getDateFrom());
+    }
 
     public function testNonCompoundRootFormDoesNotRequirePropertyPathToBeSetIfPropertyPathCanBeDerivedFromFormName(): void
     {
