@@ -129,7 +129,7 @@ final class DataMapper implements DataMapperInterface
                     $writePropertyPath($data, $form->getData());
                 } elseif ($propertyMapper instanceof PropertyMapperInterface) {
                     $propertyMapper->writePropertyValue($data, $form->getData());
-                } else {
+                } elseif (\is_string($writePropertyPath)) {
                     $writePropertyPaths[$writePropertyPath][] = $form;
                 }
             } catch (\Throwable $e) {

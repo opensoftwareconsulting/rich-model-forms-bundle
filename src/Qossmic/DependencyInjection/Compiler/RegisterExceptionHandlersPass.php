@@ -44,6 +44,7 @@ final class RegisterExceptionHandlersPass implements CompilerPassInterface
             $exceptionHandlers[$id] = new TypedReference($id, $class);
 
             foreach ($tag as $attributes) {
+                /* @phpstan-ignore-next-line */
                 $strategies[$attributes['strategy']] = $id;
             }
         }
