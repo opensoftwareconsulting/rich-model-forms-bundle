@@ -19,12 +19,6 @@ parameters:
 			path: src/Qossmic/DataTransformer/ValueObjectTransformer.php
 
 		-
-			message: '#^Cannot access offset ''strategy'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Qossmic/DependencyInjection/Compiler/RegisterExceptionHandlersPass.php
-
-		-
 			message: '#^Parameter \#1 \$strategy of method Qossmic\\RichModelForms\\ExceptionHandling\\ExceptionHandlerRegistry\:\:has\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
