@@ -13,12 +13,6 @@ parameters:
 			path: src/Qossmic/DataTransformer/ValueObjectTransformer.php
 
 		-
-			message: '#^Method Qossmic\\RichModelForms\\DataTransformer\\ValueObjectTransformer\:\:getPropertyValue\(\) should return bool\|int\|string\|null but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Qossmic/DataTransformer/ValueObjectTransformer.php
-
-		-
 			message: '#^Parameter \#1 \$strategy of method Qossmic\\RichModelForms\\ExceptionHandling\\ExceptionHandlerRegistry\:\:has\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
