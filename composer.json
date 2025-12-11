@@ -15,20 +15,20 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "psr/container": "^1.0||^2.0",
-        "symfony/config": "^6.4||^7.0||^8.0",
-        "symfony/dependency-injection": "^6.4||^7.0||^8.0",
-        "symfony/form": "^6.4||^7.0||^8.0",
-        "symfony/framework-bundle": "^6.4||^7.0||^8.0",
-        "symfony/http-kernel": "^6.4||^7.0||^8.0",
-        "symfony/options-resolver": "^6.4||^7.0||^8.0",
-        "symfony/property-access": "^6.4||^7.0||^8.0"
+        "symfony/config": "^7.3||^8.0",
+        "symfony/dependency-injection": "^7.3||^8.0",
+        "symfony/form": "^7.3||^8.0",
+        "symfony/framework-bundle": "^7.3||^8.0",
+        "symfony/http-kernel": "^7.3||^8.0",
+        "symfony/options-resolver": "^7.3||^8.0",
+        "symfony/property-access": "^7.3||^8.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
-        "symfony/phpunit-bridge": "^6.4||^7.0||^8.0",
-        "symfony/translation": "^6.4||^7.0||^8.0"
+        "symfony/phpunit-bridge": "^7.3||^8.0",
+        "symfony/translation": "^7.3||^8.0"
     },
     "conflict": {
         "sensiolabs-de/rich-model-forms-bundle": "0.8.*"
