@@ -17,7 +17,7 @@ jobs:
       - name: 'Set up PHP'
         uses: 'shivammathur/setup-php@v2'
         with:
-          php-version: '8.1'
+          php-version: '8.4'
           coverage: 'none'
 
       - name: 'Check the code style'
@@ -37,13 +37,13 @@ jobs:
       - name: 'Set up PHP'
         uses: 'shivammathur/setup-php@v2'
         with:
-          php-version: '8.1'
+          php-version: '8.4'
           coverage: 'none'
 
       - name: 'Install dependencies'
         uses: php-actions/composer@v6
         with:
-          php_version: '8.1'
+          php_version: '8.4'
 
       - name: 'Run PhpStan'
         run: |
@@ -57,12 +57,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - php-version: '8.1'
-            composer-options: '--prefer-stable'
-            symfony-version: '6.4.*'
-          - php-version: '8.2'
-            composer-options: '--prefer-stable'
-            symfony-version: '6.4.*'
           - php-version: '8.2'
             composer-options: '--prefer-stable'
             symfony-version: '7.3.*'
@@ -71,16 +65,10 @@ jobs:
             symfony-version: '7.4.*'
           - php-version: '8.3'
             composer-options: '--prefer-stable'
-            symfony-version: '6.4.*'
-          - php-version: '8.3'
-            composer-options: '--prefer-stable'
             symfony-version: '7.3.*'
           - php-version: '8.3'
             composer-options: '--prefer-stable'
             symfony-version: '7.4.*'
-          - php-version: '8.4'
-            composer-options: '--prefer-stable'
-            symfony-version: '6.4.*'
           - php-version: '8.4'
             composer-options: '--prefer-stable'
             symfony-version: '7.3.*'
@@ -90,9 +78,6 @@ jobs:
           - php-version: '8.4'
             composer-options: '--prefer-stable'
             symfony-version: '8.0.*'
-          - php-version: '8.5'
-            composer-options: '--prefer-stable'
-            symfony-version: '6.4.*'
           - php-version: '8.5'
             composer-options: '--prefer-stable'
             symfony-version: '7.3.*'
