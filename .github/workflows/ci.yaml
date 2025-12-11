@@ -78,6 +78,9 @@ jobs:
           - php-version: '8.4'
             composer-options: '--prefer-stable'
             symfony-version: '8.0.*'
+          - php-version: '8.4'
+            composer-options: '--prefer-stable'
+            symfony-version: '8.1.*'
           - php-version: '8.5'
             composer-options: '--prefer-stable'
             symfony-version: '7.3.*'
@@ -87,6 +90,9 @@ jobs:
           - php-version: '8.5'
             composer-options: '--prefer-stable'
             symfony-version: '8.0.*'
+          - php-version: '8.5'
+            composer-options: '--prefer-stable'
+            symfony-version: '8.1.*'
 
     steps:
       - name: 'Check out'
