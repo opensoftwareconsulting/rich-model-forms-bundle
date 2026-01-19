@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+0.5.0
+-----
+
+* add Symfony 8 support
+* ensure compatibility with Symfony 7.4
+
 0.4.0
 -----
 
